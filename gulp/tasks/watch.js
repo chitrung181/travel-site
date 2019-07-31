@@ -5,7 +5,7 @@ browserSync = require('browser-sync').create();
 gulp.task('watch', function() {
 
     browserSync.init({
-        notify:null,
+        notify: false,
         server:{
             baseDir: "app"
         }
@@ -23,7 +23,7 @@ gulp.task('watch', function() {
 });
 
 //update css without refresh browser
-//['styles'] only run cssInject after styles has finished
+//Run ['styles'] then run cssInject after styles has finished
 gulp.task('cssInject', ['styles'], function(){
     return gulp.src('./app/temp/styles/styles.css')
     .pipe(browserSync.stream());
